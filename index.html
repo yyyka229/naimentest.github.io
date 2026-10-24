@@ -1,0 +1,66 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffef8b"><title>奶门身份鉴定局｜测测你是奶门里的谁</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:ui-rounded,'PingFang SC','Microsoft Yahei',system-ui,sans-serif;background:#fff4a8;color:#2c2223;min-height:100dvh}.blob{position:fixed;border-radius:50%;filter:blur(3px);z-index:-1;opacity:.65}.b1{width:250px;height:250px;background:#ff9f7a;top:-80px;right:-80px}.b2{width:250px;height:250px;background:#ffcae6;bottom:-110px;left:-100px}main{max-width:540px;margin:auto;padding:24px 20px 42px}.badge{display:inline-block;background:#2c2223;color:white;border-radius:100px;padding:8px 16px;font-size:13px;font-weight:800;transform:rotate(-3deg)}h1{font-size:clamp(39px,10vw,58px);line-height:1.12;margin:25px 0 12px;letter-spacing:-2px}h2{font-size:29px;line-height:1.4;margin:14px 0 25px}.accent{color:#f04435;text-shadow:3px 3px 0 #fff}.muted{color:#6c5a53;line-height:1.75}.hero{margin:25px auto;background:#fff;border:3px solid #2c2223;border-radius:32px;padding:22px 15px;box-shadow:8px 9px 0 #2c2223;text-align:center}.mascots{font-size:70px;line-height:1.4;animation:bob 2s infinite alternate}.stickers{display:flex;justify-content:space-around;font-size:13px;font-weight:900;margin-top:10px}.sticker{background:#ffdf48;border:2px solid #2c2223;border-radius:20px;padding:7px 12px;transform:rotate(-5deg)}button{font:inherit;cursor:pointer}.primary{width:100%;border:3px solid #2c2223;border-radius:18px;background:#ff6c47;color:#20191a;padding:18px;font-size:20px;font-weight:950;box-shadow:5px 6px 0 #2c2223;transition:transform .15s}.primary:active,.option:active{transform:translate(3px,3px);box-shadow:2px 2px 0 #2c2223}.note{text-align:center;font-size:12px;margin-top:17px;color:#7c6860}.hidden{display:none!important}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.back{border:2px solid #2c2223;background:#fff;border-radius:12px;padding:8px 13px;font-weight:800}.count{font-weight:950}.track{height:14px;border:2px solid #2c2223;border-radius:30px;background:white;margin:17px 0 28px;overflow:hidden}.fill{height:100%;background:#ff704c;width:0;transition:width .3s}.qcard{background:#fffdf2;border:3px solid #2c2223;border-radius:26px;padding:23px 19px 25px;box-shadow:6px 7px 0 #2c2223}.qemoji{font-size:47px}.option{width:100%;text-align:left;background:white;border:2px solid #2c2223;border-radius:15px;margin:9px 0;padding:16px;font-size:16px;font-weight:750;box-shadow:3px 4px 0 #2c2223;line-height:1.5}.option:hover{background:#fff0a0}.option span{color:#f24d3e;margin-right:8px;font-weight:950}.result-card{background:#fff;border:3px solid #2c2223;border-radius:28px;padding:22px;box-shadow:7px 8px 0 #2c2223;text-align:center}.result-emoji{font-size:94px;line-height:1.4}.result-name{font-size:42px;font-weight:950;margin:5px}.pill{display:inline-block;border-radius:30px;background:#ffdc4f;border:2px solid #2c2223;padding:7px 15px;font-weight:900}.desc{line-height:1.9;text-align:left;background:#fff8dd;border-radius:15px;padding:16px;margin:20px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.stat{background:#f9e5ff;border-radius:15px;padding:12px 7px}.stat strong{display:block;font-size:18px;margin-top:5px}.secondary{width:100%;border:2px solid #2c2223;border-radius:16px;background:white;padding:15px;margin-top:15px;font-size:16px;font-weight:850}.footer{font-size:12px;line-height:1.7;text-align:center;margin-top:20px;color:#7a6358}@keyframes bob{from{transform:translateY(-5px) rotate(-3deg)}to{transform:translateY(7px) rotate(3deg)}}
+</style></head><body><div class="blob b1"></div><div class="blob b2"></div><main><section id="home"><span class="badge">🥛 奶门宇宙 · 官方不认证</span><h1>奶门身份<br><span class="accent">鉴定局！</span></h1><p class="muted">奶门这么大，你到底是哪块奶？<br>30道抽象小题，查清你的隐藏奶籍。</p><div class="hero"><div class="mascots">🐸 🥚 🐭<br>🐱 🐶 🐥</div><div class="stickers"><span class="sticker">离谱但合理</span><span class="sticker">奶味浓度↑</span></div></div><button class="primary" onclick="start()">速速查明奶籍 →</button><p class="note">约 3–5 分钟 · 无需登录 · 纯娱乐测试</p></section><section id="quiz" class="hidden"><div class="top"><button class="back" onclick="previous()">← 返回</button><span class="count" id="count"></span></div><div class="track"><div class="fill" id="fill"></div></div><div class="qcard"><div class="qemoji" id="qemoji"></div><h2 id="question"></h2><div id="options"></div></div><p class="note">选择最像你的那一项，没有标准答案。</p></section><section id="result" class="hidden"><span class="badge">🔎 奶籍鉴定完毕</span><h1>抓到了！<br><span class="accent">原来你是…</span></h1><div class="result-card" id="capture"><div class="pill" id="temperature"></div><div class="result-emoji" id="remoji"></div><div class="result-name" id="rname"></div><div class="muted" id="tagline"></div><div class="desc" id="description"></div><div class="stats"><div class="stat">抽象浓度<strong id="chaos"></strong></div><div class="stat">最佳奶搭子<strong id="buddy"></strong></div></div><div class="pill">🥛 我的奶门身份已曝光</div></div><button class="primary" style="margin-top:25px" onclick="saveCard()">📸 保存奶门身份卡</button><button class="secondary" onclick="restart()">🔄 不服？重新鉴定</button><p class="footer">结果由趣味匹配算法生成，不代表科学心理测评。<br>本页面为非官方同人娱乐原型。</p></section></main><script>
+const traits=['out','calm','cute','chaos','social'];
+const roles=[
+['奶蛙','🐸','火山','天生的奶门主角','有想法、敢开麦，遇事先冲再说。你不是爱出风头，你只是自带舞台灯。','奶蛋',[5,0,1,4,4]],
+['奶蛋','🥚','烫','圆滚滚的治愈核心','你看起来软软的，实际上很有自己的节奏。可爱是天赋，松弛是绝招。','小奶蛙',[1,4,5,0,2]],
+['小奶蛙','🐤','烫','表情包行走体','情绪都写在脸上，快乐很直接。你出现的地方，聊天记录都会变好笑。','奶豆',[3,1,5,4,3]],
+['奶鼠','🐭','热','享受生活专业户','能坐着绝不站着，擅长寻找快乐的小角落。你是朋友圈的舒适区。','奶粉',[1,5,4,1,2]],
+['奶豆','🟡','热','快乐永动机','脑子里随时有新鲜点子，热闹从不缺席。你不一定最吵，但很会制造惊喜。','奶狗',[4,1,4,4,5]],
+['奶狗','🐶','热','友谊发射器','热情是你的默认设置。别人还在犹豫，你已经开始拉群组织活动了。','奶豆',[4,2,3,2,5]],
+['奶粉','🩷','温','温柔又有小脾气','你重视感受，也会认真照顾自己。看似慢热，熟悉后有独特的幽默感。','奶鼠',[2,4,4,2,3]],
+['奶鸡','🐔','温','低调的奶量担当','你不爱争抢镜头，但关键时刻总能站出来。可靠之余，还有一点奇怪的幽默。','奶兔',[2,4,3,3,3]],
+['奶猫','🐱','温','安静观察大师','不一定先说话，但什么都看在眼里。你的边界感和反差萌一样突出。','奶鱼',[0,5,3,2,1]],
+['奶屎','💩','冷','抽象界隐藏王者','别人还在讲逻辑，你已经把气氛带到另一个次元。你的梗需要一点理解门槛。','奶茶',[2,3,1,5,2]],
+['豆奶','🧋','冷','冷热交替神秘奶','能安静也能突然发疯。你很难被一种标签概括，反差就是你的名片。','奶猫',[2,4,3,4,2]],
+['奶兔','🐰','冷','柔软的独处选手','你喜欢有自己的小世界。看似淡定，其实心里藏着一座热闹游乐园。','奶鸡',[1,5,5,1,2]],
+['奶鱼','🐟','冷','随波不逐流','你有自己的生活频率。别人觉得你冷，你只是把能量留给真正喜欢的事。','奶猫',[0,5,2,3,1]],
+['奶茶','🍵','冷','淡定的吐槽艺术家','外表岁月静好，内心弹幕不停。你总能用一句话精准点破全场。','奶屎',[2,4,2,5,2]],
+['奶瓶','🍼','冷','自带保护罩的奶','你不爱无谓争执，擅长守护自己的节奏。熟悉你的人才知道你多有趣。','奶蛋',[1,5,4,1,1]],
+['西格玛奶蛙','🗿','冷','独行奶门传说','你对自己的路线很坚定，不急着被理解。越是热闹，越能保持自己的主意。','奶蛙',[1,5,1,4,0]]
+];
+const questions=[
+['🎉','朋友突然喊你出门，你会？',['鞋穿好了，人呢？','先问都有谁','有吃的我就去','发个表情包装没看见']],
+['🧃','一杯奶茶洒了，你第一反应？',['现场指挥抢救','默默收拾','心疼奶茶三秒','拍照发群：案发现场']],
+['🛌','周末最理想的打开方式？',['出去寻找新鲜事','睡到自然醒','窝着看可爱视频','随机开启神秘计划']],
+['📱','你的聊天风格最接近？',['语音轰炸机','已读但认真想回复','贴贴表情包','怪图批发商']],
+['🧑‍🤝‍🧑','朋友心情不好，你会？',['带TA出去散心','静静陪着','送点小零食','先讲一个离谱笑话']],
+['🍜','大家纠结吃什么时？',['我来拍板！','都可以真的','选看起来可爱的店','转盘决定命运']],
+['🫣','被人夸可爱时，你会？',['那当然！','害羞转移话题','嘿嘿谢谢','当场做个鬼脸']],
+['🚀','一个新活动出现，你通常？',['第一个报名','先看攻略','叫上朋友一起','先问有没有隐藏彩蛋']],
+['🎭','你最容易被哪种视频逗笑？',['高能整活','安静治愈','萌宠日常','完全无法解释的抽象视频']],
+['🧠','遇到棘手问题时，你会？',['立刻试几种方法','自己慢慢分析','找人讨论','先想个奇怪但可能有用的招']],
+['💬','群聊突然安静了，你会？',['主动开新话题','享受安静','发个可爱贴纸','发一句没人能接的怪话']],
+['🌧️','下雨天你更想？',['冲出去踩水','在家听雨','裹毯子喝热饮','给雨配一段史诗旁白']],
+['🎂','过生日最喜欢？',['热闹的大聚会','安静的小庆祝','收到用心的小礼物','意料之外的惊喜']],
+['🛒','逛超市时你会？',['迅速扫货','按清单慢慢买','看可爱包装','买一个完全没必要的东西']],
+['🪩','KTV里你是什么角色？',['麦霸','角落听众','给大家鼓掌','突然唱一首怪歌']],
+['👀','有人说你很特别，你觉得？',['当然，我独一无二','有点不好意思','希望是好意思','这还只是冰山一角']],
+['🎮','游戏里你更喜欢？',['冲锋带队','独自探索','养宠物装扮','测试奇怪的玩法']],
+['📷','拍合照时你会？',['站C位比耶','找个边边','做可爱手势','贡献最离谱的表情']],
+['🫧','压力大时你怎么放松？',['运动释放','一个人待会儿','找人贴贴聊天','刷梗笑到忘记压力']],
+['🌈','如果能有超能力，你选？',['瞬间移动','时间暂停','治愈别人','让所有人突然跳舞']],
+['🍰','朋友分你最后一口蛋糕，你会？',['大方接过','说你吃吧','开心得冒泡','发表获奖感言']],
+['🌙','凌晨突然有灵感，你会？',['马上行动','记下来明天做','分享给好朋友','越想越离谱']],
+['🐾','路上遇到可爱小动物？',['兴奋地打招呼','远远欣赏','心都化了','给它起一个怪名字']],
+['🧊','有人误解你，你会？',['直接解释','等合适时机再说','有点委屈','用幽默化解']],
+['🍟','聚餐最后一根薯条？',['问一圈然后吃掉','留给别人','掰成两半','宣布薯条继承权争夺战']],
+['📚','学习新东西时？',['边做边学','先看完整教程','找搭子一起','从最奇怪的问题开始']],
+['🎁','挑礼物你更看重？',['实用又惊喜','对方真正需要','可爱和心意','有梗且难忘']],
+['🧸','房间里最不能少？',['活动空间','舒服的角落','软萌小物','一个无用但好笑的摆件']],
+['🎢','面对未知挑战？',['好耶冲！','先观察一下','有人陪就行','这不就是新剧情吗']],
+['🥛','最后一题：你觉得自己是哪种奶？',['沸腾冒泡奶','冰镇慢热奶','甜甜软软奶','无法分类的神秘奶']]
+];
+// Each answer contributes to five independent playful traits: extroversion, calm, cuteness, absurdity, sociability.
+const vectors=[[5,0,1,2,4],[0,5,1,0,0],[1,2,5,0,4],[2,1,0,5,2]];
+let answers=[],index=0;
+function show(id){['home','quiz','result'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));window.scrollTo(0,0)}
+function start(){answers=[];index=0;render();show('quiz')}
+function render(){document.getElementById('count').textContent=`${index+1} / ${questions.length}`;document.getElementById('fill').style.width=(index/questions.length*100)+'%';let q=questions[index];document.getElementById('qemoji').textContent=q[0];document.getElementById('question').textContent=q[1];document.getElementById('options').innerHTML=q[2].map((s,i)=>`<button class="option" onclick="choose(${i})"><span>${'ABCD'[i]}.</span>${s}</button>`).join('')}
+function choose(i){answers[index]=i;index++;if(index>=questions.length){finish()}else{render();window.scrollTo(0,0)}}
+function previous(){if(index===0){show('home')}else{index--;render()}}
+function finish(){let totals=[0,0,0,0,0];answers.forEach((a,i)=>vectors[(a+i%4)%4].forEach((v,j)=>totals[j]+=v));let norm=totals.map(v=>v/questions.length);let scored=roles.map((r,i)=>({i,score:r[6].reduce((s,v,j)=>s+(v-norm[j])**2,0)})).sort((a,b)=>a.score-b.score);let r=roles[scored[0].i];document.getElementById('temperature').textContent='🌡️ '+r[2]+'系奶门';document.getElementById('remoji').textContent=r[1];document.getElementById('rname').textContent=r[0];document.getElementById('tagline').textContent=r[3];document.getElementById('description').textContent=r[4];document.getElementById('buddy').textContent=r[5];document.getElementById('chaos').textContent=Math.min(99,Math.max(30,Math.round(norm[3]*19+12)))+'%';show('result')}
+function restart(){start()}
+function saveCard(){const c=document.createElement('canvas');c.width=900;c.height=1200;let x=c.getContext('2d');x.fillStyle='#fff2a8';x.fillRect(0,0,900,1200);x.fillStyle='#2c2223';x.textAlign='center';x.font='bold 54px sans-serif';x.fillText('🥛 奶门身份鉴定局',450,120);x.fillStyle='#fff';x.beginPath();x.roundRect(55,175,790,870,40);x.fill();x.strokeStyle='#2c2223';x.lineWidth=8;x.stroke();x.fillStyle='#2c2223';x.font='bold 40px sans-serif';x.fillText(document.getElementById('temperature').textContent,450,290);x.font='145px sans-serif';x.fillText(document.getElementById('remoji').textContent,450,480);x.font='bold 90px sans-serif';x.fillText(document.getElementById('rname').textContent,450,610);x.font='bold 35px sans-serif';x.fillText(document.getElementById('tagline').textContent,450,690);x.font='30px sans-serif';let d=document.getElementById('description').textContent;let lines=[];for(let k=0;k<d.length;k+=21)lines.push(d.slice(k,k+21));lines.forEach((s,i)=>x.fillText(s,450,780+i*46));x.font='bold 34px sans-serif';x.fillText('最佳奶搭子：'+document.getElementById('buddy').textContent,450,985);x.font='26px sans-serif';x.fillText('纯娱乐趣味测试 · 奶籍仅供快乐参考',450,1125);let a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='我的奶门身份.png';a.click()}
+</script></body></html>
